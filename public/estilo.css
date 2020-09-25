@@ -1,3 +1,88 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: aqua;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.menu{
+  background-color: #252525;
+  padding: 20px 0;
+}
+
+.menu-container {
+  display: flex;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.menu-logo{
+  width: 10%;
+  font-size: 1.6em;
+  color: #fff;
+  padding-left: 80px;
+}
+
+.menu-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 80px;
+  width: 90%;
+  color: #fff;
+}
+
+.menu-nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.menu-nav ul li a {
+  text-decoration: none;
+  color:#fff;
+  font-size: 1.125em;
+}
+
+main {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background-color: rgba(194, 194, 194, 0.466);
+  padding: 40px 0 40px 10px;
+  width: 50%;
+  border: 2px solid rgba(194, 194, 194, 0.192);
+  border-radius: 5px 5px;
+}
+
+.container-principal h2{
+  font-size: 1.6em;
+}
+
+.container-principal p{
+  font-size: 1.125em;
+  color: #505050;
+  font-style: italic;
+  margin: 10px 0;
+  max-width: 80%;
+}
+
+.container-principal strong{
+  font-size: 0.95em;
+}
+
+.btn {
+  border: 1px solid #222;
+  border-radius: 5px 5px;
+  font-size: 1em;
+  background-color: #222;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
 }
