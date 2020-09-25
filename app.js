@@ -1,8 +1,25 @@
 const express = require('express');
+const mysql = require('mysql');
+
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'login'
+});
+
+db.connect((err) => {
+  if(err){
+    console.log(err)
+  }else {
+    console.log('Mysql Conectado...')
+  }
+})
+
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('<h1> Home page </h1>')
+  res.send('<h1> Pagina Home </h1>')
 });
 
 
