@@ -1,7 +1,8 @@
 const express = require('express');
 const mysql = require('mysql');
+const path = require('path');
 const dotenv = require('dotenv');
-
+const app = express();
 
 dotenv.config({path: './.env'})
 
@@ -20,13 +21,14 @@ db.connect((err) => {
   }
 })
 
-const app = express();
-
 app.get('/', (req, res) => {
-  res.send('<h1> Pagina Home </h1>')
+  res.render("index")
 });
 
 app.set('view engine', 'hbs');
+
+const diretorioPublico = path.join(__dirname,'./public')
+app.use(express.static(diretorioPublico));
 
 
 app.listen(5000, () => {
