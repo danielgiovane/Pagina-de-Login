@@ -46,8 +46,14 @@ body {
   font-size: 1.125em;
 }
 
+.menu-nav ul li a:hover{
+  color: #888;
+}
+
+
+
 main {
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
 }
@@ -85,4 +91,34 @@ main {
   padding: 10px 20px;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.form{
+  padding: 40px 10px;
+  width: 30%;
+  border: 3px solid rgba(194, 194, 194, 0.192);
+  border-radius: 5px 5px;
+}
+
+.form h2, .grupo-form{
+  padding-left: 10px;
+}
+
+.form h2 {
+  font-size: 1.6em;
+  padding-bottom: 20px;
+}
+
+.form label {
+  color: #444;
+}
+
+.form input {
+  padding: 10px 0;
+  margin: 10px 3px;
+  width: 90%;
+}
+
+.form .btn {
+  margin-left: 10px;
 }

@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
   res.render("index")
 });
 
+app.get('/registrar', (req, res) => {
+  res.render("registrar")
+});
+
 app.set('view engine', 'hbs');
 
 const diretorioPublico = path.join(__dirname,'./public')
