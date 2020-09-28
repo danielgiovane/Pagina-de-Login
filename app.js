@@ -2,7 +2,9 @@ const express = require('express');
 const mysql = require('mysql');
 const path = require('path');
 const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 const app = express();
+
 
 dotenv.config({path: './.env'})
 
@@ -21,13 +23,23 @@ db.connect((err) => {
   }
 })
 
-app.set('view engine', 'hbs');
+
+app.use(bodyParser.urlencoded({extend: false}));
+
+// parseando os dados do body para json
+app.use(bodyParser.json());
+
 
 // definindo rotas
 app.use('/', require('./routes/paginas'))
 
+app.use('/autenticacao', require('./routes/autenticacao'));
+
 const diretorioPublico = path.join(__dirname,'./public')
+
 app.use(express.static(diretorioPublico));
+
+app.set('view engine', 'hbs');
 
 // Startando o banco
 app.listen(5000, () => {

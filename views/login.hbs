@@ -22,17 +22,24 @@
     </div>
   </header>
 
-  <main class="wrapper">
-    <div class="container">
-      <div class="container-principal">
+  <main>
+
+    <form class="form" method="POST">
         <h2>Login</h2>
-        <p>Implementando um projeto de login com node.js e mysql, fazendo o template
-          com css puro.
-        </p>
-        <strong>Esse é um container</strong>
-      </div>
-      <button class="btn">Saiba mais</button>
-    </div>
+
+        <div class="grupo-form">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </div>
+
+        <div class="grupo-form">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha">
+        </div>
+
+        <button type="submit" class="btn">Registrar</button>
+    </form>
+
   </main>
 
 </body>
