@@ -25,26 +25,40 @@
   <main>
 
     <form class="form" action="/autenticacao/registrar" method="POST">
-        <h2>Registrar</h2>
-        <div class="grupo-form">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome">
-        </div>
+      <h2>Registrar</h2>
+      <div class="grupo-form">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome">
+      </div>
 
-        <div class="grupo-form">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email">
-        </div>
+      <div class="grupo-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
 
-        <div class="grupo-form">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha">
-        </div>
+      <div class="grupo-form">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha">
+      </div>
 
-        <button type="submit" class="btn">Registrar</button>
+      <div class="grupo-form">
+        <label for="confirmaSenha">Confirma Senha</label>
+        <input type="password" id="confirmaSenha" name="confirmaSenha">
+      </div>
+
+
+      <button type="submit" class="btn">Registrar</button>
     </form>
 
+    {{#if message}}
+    <h4 class="alert">{{message}}</h4>
+    {{/if}}
+
   </main>
+
+  <footer class="footer">
+    <p>Todos os direitos reservados</p>
+  </footer>
 
 </body>
 

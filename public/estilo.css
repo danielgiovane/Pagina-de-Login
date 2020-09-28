@@ -5,16 +5,22 @@
 
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex: 1;
   background-color: #252525;
   padding: 20px 0;
 }
 
 .menu-container {
   display: flex;
-  width: 100%;
   padding: 20px 0;
 }
 
@@ -55,13 +61,15 @@ body {
 main {
   margin-top: 50px;
   display: flex;
+  flex-direction: column;
+  flex: 8;
   justify-content: center;
+  align-items: center;
 }
 
 .container {
   background-color: rgba(194, 194, 194, 0.466);
   padding: 40px 0 40px 10px;
-  width: 50%;
   border: 2px solid rgba(194, 194, 194, 0.192);
   border-radius: 5px 5px;
 }
@@ -94,8 +102,9 @@ main {
 }
 
 .form{
+  display: flex;
+  flex-direction: column;
   padding: 40px 10px;
-  width: 30%;
   border: 3px solid rgba(194, 194, 194, 0.192);
   border-radius: 5px 5px;
 }
@@ -121,4 +130,37 @@ main {
 
 .form .btn {
   margin-left: 10px;
+}
+
+.alert{
+  background-color:#e97f7f;
+  color: #fff;
+  width: 300px;
+  margin-top: 5px;
+  padding: 10px 10px;
+}
+
+.secesso{
+  background-color:#54affa;
+  color: #fff;
+  width: 300px;
+  margin-top: 5px;
+  padding: 10px 10px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 10px;
+  background-color: #252525;
+  text-align: center;
+  justify-content:center;
+  margin-top: 20px;
+}
+
+.footer p {
+  text-align: 1.125em;
+  color: #fff;
+  list-style: italic;
 }
