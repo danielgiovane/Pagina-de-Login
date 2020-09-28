@@ -21,20 +21,15 @@ db.connect((err) => {
   }
 })
 
-app.get('/', (req, res) => {
-  res.render("index")
-});
-
-app.get('/registrar', (req, res) => {
-  res.render("registrar")
-});
-
 app.set('view engine', 'hbs');
+
+// definindo rotas
+app.use('/', require('./routes/paginas'))
 
 const diretorioPublico = path.join(__dirname,'./public')
 app.use(express.static(diretorioPublico));
 
-
+// Startando o banco
 app.listen(5000, () => {
   console.log('server startado na porta 5000')
 })
