@@ -24,7 +24,7 @@
 
   <main>
 
-    <form class="form" method="POST">
+    <form class="form" action="/autenticacao/login" method="POST">
         <h2>Login</h2>
 
         <div class="grupo-form">
@@ -39,6 +39,11 @@
 
         <button type="submit" class="btn">Registrar</button>
     </form>
+    
+    {{#if message}}
+    <h4 class="alert">{{message}}</h4>
+    {{/if}}
+  
 
   </main>
 

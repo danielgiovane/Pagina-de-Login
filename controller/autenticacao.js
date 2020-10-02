@@ -21,6 +21,7 @@ exports.registrar = (req, res) => {
     }
 
     if (resultado.length > 0) {
+      console.log(resultado)
       return res.render('registrar', {
         message: 'Email em uso'
       })
@@ -33,10 +34,10 @@ exports.registrar = (req, res) => {
     const senhaComHash = await bcrypt.hash(senha, 8);
     console.log(senhaComHash)
 
-    db.query('INSERT INTO usuarios SET ?', {nome: nome, email: email, senha: senhaComHash}, (error, resultado) => {
-      if(error){
+    db.query('INSERT INTO usuarios SET ?', { nome: nome, email: email, senha: senhaComHash }, (error, resultado) => {
+      if (error) {
         console.log(error)
-      }else {
+      } else {
         console.log(resultado)
         return res.render('registrar', {
           message: 'Registrado com suceeso'
@@ -46,3 +47,47 @@ exports.registrar = (req, res) => {
   })
 
 }
+
+exports.login = async (req, res) => {
+  try {
+    const { email, senha } = req.body;
+
+    if (!email || !senha) {
+      return res.status(400).render('login', {
+        message: 'Por favor forneça email e senha'
+      })
+    }
+
+    db.query('SELECT * FROM usuarios WHERE email = ?', [email], async (error, resultado) => {
+
+      if (!resultado || !(await bcrypt.compare(senha, resultado[0].senha))) {
+        res.status(401).render('login', {
+          message: 'Email ou senha incorreto'
+        })
+        return
+      }
+      const id = resultado[0].id;
+
+      const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN
+      });
+
+      console.log('o token é', token)
+
+      const configurarCookies = {
+        expires: new Date(
+          Date.now + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+        ),
+        httpOnly: true
+      }
+
+      res.cookie('jwt', token, configurarCookies);
+      res.status(200).redirect('/');
+    })
+
+
+  } catch (error) {
+    console.log(error)
+  }
+
+};

@@ -3,6 +3,8 @@ const mysql = require('mysql');
 const path = require('path');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser')
+
 const app = express();
 
 
@@ -23,7 +25,7 @@ db.connect((err) => {
   }
 })
 
-
+app.use(cookieParser())
 app.use(bodyParser.urlencoded({extend: false}));
 
 // parseando os dados do body para json
