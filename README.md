@@ -1,4 +1,4 @@
-                                           <h2>Projetinho de LOGIN e CADASTRO</h2>
+                                               Projetinho de LOGIN e CADASTRO
 
 
 
